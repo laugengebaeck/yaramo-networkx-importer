@@ -9,6 +9,8 @@ from yaramo.node import Node
 from yaramo.topology import Topology
 
 
+# input is a graph where nodes are tuples of x and y coordinate
+# edges should be geometrical edges (i.e. not contracted to only contain topological edges)
 class NetworkxImporter:
     def __init__(self, graph: nx.Graph):
         self.graph = graph
