@@ -38,9 +38,7 @@ class NetworkxImporter:
         return self._get_next_top_node(node_to, distinct_edges[0], path)
 
     def _add_geo_nodes(self, path, top_edge: Edge):
-        for idx, node in enumerate(path):
-            if idx == 0:
-                continue
+        for node in path:
             x, y = node
             top_edge.intermediate_geo_nodes.append(EuclideanGeoNode(x, y))
 
