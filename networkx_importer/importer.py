@@ -66,11 +66,19 @@ class NetworkxImporter:
                 next_top_node, path = self._get_next_top_node(node, edge, [])
                 if next_top_node and next_top_node != node:
                     node_a = next(
-                        (n for n in self.topology.nodes.values() if n.name == str(node)),
+                        (
+                            n
+                            for n in self.topology.nodes.values()
+                            if n.name == get_node_name(self.graph, node)
+                        ),
                         None,
                     )
                     node_b = next(
-                        (n for n in self.topology.nodes.values() if n.name == str(next_top_node)),
+                        (
+                            n
+                            for n in self.topology.nodes.values()
+                            if n.name == get_node_name(self.graph, next_top_node)
+                        ),
                         None,
                     )
                     if node_a and node_b and self._should_add_edge(node_a, node_b, path):
