@@ -2,11 +2,12 @@ from collections import defaultdict
 from typing import Any, Optional
 
 import networkx as nx
-from utils import is_end_node, is_same_edge, is_switch
 from yaramo.edge import Edge
 from yaramo.geo_node import EuclideanGeoNode
 from yaramo.node import Node
 from yaramo.topology import Topology
+
+from .utils import get_node_name, is_end_node, is_same_edge, is_switch
 
 
 # input is a graph where nodes are tuples of x and y coordinate
@@ -56,7 +57,7 @@ class NetworkxImporter:
     def run(self) -> Topology:
         for node in self.top_nodes:
             x, y = node
-            top_node = Node(name=str(node))
+            top_node = Node(name=get_node_name(self.graph, node))
             top_node.geo_node = EuclideanGeoNode(x, y)
             self.topology.add_node(top_node)
 
