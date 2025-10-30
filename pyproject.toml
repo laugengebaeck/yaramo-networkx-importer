@@ -9,7 +9,7 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.13, <4.0"
 dependencies = [
-    "yaramo @ git+https://github.com/simulate-digital-rail/yaramo@yaramo2",
+    "yaramo @ git+https://github.com/laugengebaeck/yaramo@yaramo2",
     "networkx (>=3.5,<4.0)"
 ]
 
